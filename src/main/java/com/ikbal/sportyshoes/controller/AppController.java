@@ -2,6 +2,9 @@ package com.ikbal.sportyshoes.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
@@ -80,14 +83,41 @@ public class AppController {
 	    Customer customer= new Customer();
 	    model.addAttribute("customer", customer);
 	     
-	    return "customer_signup";
+	    return "customer_register";
 	}
 	
 	@PostMapping("/cussave")
 	public String saveCustomer(@ModelAttribute("customer") Customer customer) {
 		cusService.save(customer);
 	     
-	    return "redirect:/customer";
+	    return "redirect:/";
 	}
+	
+	@RequestMapping("customer/login")
+	public String customerLoginPage(Model model) {
+	    Customer customer= new Customer();
+	    model.addAttribute("customer", customer);
+	     
+	    return "login";
+	}
+	
+//	@RequestMapping("/login")
+//	public String adminLogin(HttpServletRequest req) {
+//		String userName=req.getParameter("login__icon fas fa-user");
+//		String password=req.getParameter("login__icon fas fa-lock");
+//		if(userName.equalsIgnoreCase("admin@admin.com") && password.equalsIgnoreCase("admin")) {
+//			return "dasboard";
+//		} else {
+//			return "index";
+//		}
+//	    
+//	}
+	
+	@RequestMapping("dashboard")
+	public String dashBoard() {
+		return "dasboard";
+	}
+	
+
 
 }
