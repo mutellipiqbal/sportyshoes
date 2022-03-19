@@ -2,10 +2,8 @@ package com.ikbal.sportyshoes.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,12 +12,17 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ikbal.sportyshoes.entity.Customer;
+
+
+import com.ikbal.sportyshoes.entity.Orders;
 import com.ikbal.sportyshoes.entity.Product;
 import com.ikbal.sportyshoes.service.CustomerService;
+
+import com.ikbal.sportyshoes.service.OrdersService;
 import com.ikbal.sportyshoes.service.ProductService;
 
 @Controller
@@ -29,6 +32,9 @@ public class AppController {
 	
 	@Autowired
 	private CustomerService cusService;
+	
+	@Autowired
+	private OrdersService oService;
 	
 	@GetMapping("product")
 	public String viewProductPage(Model model, @Param("keyword") String keyword) {
@@ -118,6 +124,36 @@ public class AppController {
 		return "dasboard";
 	}
 	
+	@RequestMapping("orders/new")
+	public String oderCreationPage(Model model) {
+		Orders orders=new Orders();
+		model.addAttribute("orders", orders);
+	
+	    return "new_orders";
+	}
+	
+	@PostMapping("/osave")
+	public String saveOrder(@ModelAttribute("orders") Orders orders) {
+		oService.save(orders);
+	     
+	    return "redirect:/orders";
+	}
+	
+	@GetMapping("orders")
+	public String viewOrderPage(Model model) {
+	    List<Orders> ordersList=oService.listAll();
+	    model.addAttribute("ordersList", ordersList);
+   
+	    return "orders";
+	}
+
+	@RequestMapping("logout")
+	public String logout() {
+		return "index";
+	}
+	
+	
+
 
 
 }

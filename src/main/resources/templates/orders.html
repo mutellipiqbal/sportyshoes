@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Customer Registeration</title>
+</head>
+<body>
+	<div align="center">
+	<div>
+		<h1>Order List</h1>
+			<a href="dashboard">Back to Dashboard</a>
+	</div>
+	<div>&nbsp;</div>
+
+		<div>
+			<form th:action="@{orders/}">
+				Filter: <input type="text" name="keyword" required /> &nbsp; 
+				<input type="submit" value="Search" /> &nbsp; 
+				<input type="button" value="Clear" onclick="clearFilter()" />
+			</form>
+		</div>
+
+		<div>&nbsp;</div>
+
+
+		<div>
+			<table border="1" cellpadding="10">
+				<thead>
+					<tr>
+						<th>Order ID</th>
+						<th>Order Name</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="orders: ${ordersList}">
+						<td th:text="${orders.id}">Order ID</td>
+						<td th:text="${orders.name}">Order Name</td>
+
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+function clearFilter(){
+	window.location='customer/';
+}
+</script>
+</body>
+</html>

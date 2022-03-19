@@ -5,221 +5,502 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Beautiful Bootstrap Navbar with Menu Icons</title>
-<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<style>
-	body {
-		background: #eeeeee;
-		font-family: 'Varela Round', sans-serif;
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+
+
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+ul {
+	list-style: none;
+	margin: 0px;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+a {
+	text-decoration: none;
+	display: block;
+	padding: 1em;
+	color: #c8882d;
+	font-size: 18px;
+	font-family: Lora;
+}
+
+a:hover {
+	border-bottom: 1px #20263f solid;
+}
+
+.navbar__social-media {
+	display: flex;
+	justify-content: space-between;
+}
+
+.navbar__links i {
+	margin: 0px;
+	color: #c8882d;
+	font-size: 18px;
+}
+
+.navbar__links i:hover {
+	border-bottom: 1px #20263f solid;
+}
+
+.navigation li:hover {
+	background-color: #20263f;
+}
+
+/* Title Format */
+.h1 {
+	color: #20263f;
+	font-family: "Dosis", sans-serif;
+	font-weight: 400;
+	font-size: 50px;
+	display: block;
+}
+
+.title {
+	text-align: left;
+	justify-content: left;
+	width: 100%;
+	height: 75px;
+	margin-bottom: 30px;
+	animation-name: titleIn;
+	animation-duration: 2s;
+	animation-timing-function: ease-in-out;
+}
+
+/* Grid Format */
+/*Formats the text inside the image*/
+.container>div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2em;
+	color: #20263f;
+}
+
+.container>div>img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.container {
+	display: grid;
+	grid-gap: 35px;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-auto-rows: 300px;
+}
+
+img {
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.description {
+	display: none;
+	position: absolute;
+}
+
+.container>div:hover {
+	transform: scale(1.1);
+}
+
+.container>div:hover .description {
+	display: block;
+	text-align: center;
+}
+
+.container>div:hover img {
+	opacity: 0.7;
+}
+/*Footer*/
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	align-content: flex-start;
+}
+
+.footer__tagline-title {
+	color: #20263f;
+	font-size: 18px;
+	font-family: Lora;
+}
+
+.footer__tagline {
+	font-style: italic;
+	color: #c8882d;
+}
+
+body {
+	background: #eeeeee;
+	font-family: 'Varela Round', sans-serif;
+}
+
+.form-inline {
+	display: inline-block;
+}
+
+.navbar {
+	color: #fff;
+	background: #926dde;
+	padding: 5px 16px;
+	border-radius: 0;
+	border: none;
+	box-shadow: 0 0 4px rgba(0, 0, 0, .1);
+}
+
+.navbar img {
+	border-radius: 50%;
+	width: 36px;
+	height: 36px;
+	margin-right: 10px;
+}
+
+.navbar .navbar-brand {
+	color: #efe5ff;
+	padding-left: 0;
+	padding-right: 50px;
+	font-size: 24px;
+}
+
+.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
+	color: #fff;
+}
+
+.navbar .navbar-brand i {
+	font-size: 25px;
+	margin-right: 5px;
+}
+
+.search-box {
+	position: relative;
+}
+
+.search-box input {
+	padding-right: 35px;
+	min-height: 38px;
+	border: none;
+	background: #faf7fd;
+	border-radius: 3px !important;
+}
+
+.search-box input:focus {
+	background: #fff;
+	box-shadow: none;
+}
+
+.search-box .input-group-addon {
+	min-width: 35px;
+	border: none;
+	background: transparent;
+	position: absolute;
+	right: 0;
+	z-index: 9;
+	padding: 10px 7px;
+	height: 100%;
+}
+
+.search-box i {
+	color: #a0a5b1;
+	font-size: 19px;
+}
+
+.navbar ul li i {
+	font-size: 18px;
+}
+
+.navbar .nav-item span {
+	position: relative;
+	top: 3px;
+}
+
+.navbar .nav>li a {
+	color: #efe5ff;
+	padding: 8px 15px;
+	font-size: 14px;
+}
+
+.navbar .nav>li a:hover, .navbar .nav>li a:focus {
+	color: #fff;
+	text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+.navbar .nav>li>a>i {
+	display: block;
+	text-align: center;
+}
+
+.navbar .dropdown-menu i {
+	font-size: 16px;
+	min-width: 22px;
+}
+
+.navbar .dropdown-menu .material-icons {
+	font-size: 21px;
+	line-height: 16px;
+	vertical-align: middle;
+	margin-top: -2px;
+}
+
+.navbar .dropdown.open>a, .navbar .dropdown.open>a:hover, .navbar .dropdown.open>a:focus
+	{
+	color: #fff;
+	background: none !important;
+}
+
+.navbar .dropdown-menu {
+	border-radius: 1px;
+	border-color: #e5e5e5;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+}
+
+.navbar .dropdown-menu li a {
+	color: #777 !important;
+	padding: 8px 20px;
+	line-height: normal;
+}
+
+.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:focus {
+	color: #333 !important;
+	background: transparent !important;
+}
+
+.navbar .nav .active a, .navbar .nav .active a:hover, .navbar .nav .active a:focus
+	{
+	color: #fff;
+	text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+	background: transparent !important;
+}
+
+.navbar .nav .user-action {
+	padding: 9px 15px;
+}
+
+.navbar .navbar-toggle {
+	border-color: #fff;
+}
+
+.navbar .navbar-toggle .icon-bar {
+	background: #fff;
+}
+
+.navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
+	background: transparent;
+}
+
+.navbar .navbar-nav .open .dropdown-menu {
+	background: #faf7fd;
+	border-radius: 1px;
+	border-color: #faf7fd;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+}
+
+.navbar .divider {
+	background-color: #e9ecef !important;
+}
+
+@media ( min-width : 1200px) {
+	.form-inline .input-group {
+		width: 350px;
+		margin-left: 30px;
 	}
-    .form-inline {
-        display: inline-block;
-    }
-	.navbar {
-		color: #fff;
-		background: #926dde;
-		padding: 5px 16px;
-		border-radius: 0;
-		border: none;
-		box-shadow: 0 0 4px rgba(0,0,0,.1);
-	}
-	.navbar img {
-		border-radius: 50%;
-		width: 36px;
-		height: 36px;
-		margin-right: 10px;
-	}
-	.navbar .navbar-brand {
-		color: #efe5ff;
-		padding-left: 0;
-		padding-right: 50px;
-		font-size: 24px;		
-	}
-	.navbar .navbar-brand:hover, .navbar .navbar-brand:focus {
-		color: #fff;
-	}
-	.navbar .navbar-brand i {
-		font-size: 25px;
-		margin-right: 5px;
-	}
-	.search-box {
-        position: relative;
-    }	
-    .search-box input {
-        padding-right: 35px;
-		min-height: 38px;
-		border: none;
-		background: #faf7fd;
-        border-radius: 3px !important;
-    }
-	.search-box input:focus {		
-		background: #fff;
-		box-shadow: none;
-	}
-	.search-box .input-group-addon {
-        min-width: 35px;
-        border: none;
-        background: transparent;
-        position: absolute;
-        right: 0;
-        z-index: 9;
-        padding: 10px 7px;
-		height: 100%;
-    }
-    .search-box i {
-        color: #a0a5b1;
-		font-size: 19px;
-    }
-	.navbar ul li i {
-		font-size: 18px;
-	}
-	.navbar .nav-item span {
+}
+
+@media ( max-width : 1199px) {
+	.navbar .nav>li>a>i {
+		display: inline-block;
+		text-align: left;
+		min-width: 30px;
 		position: relative;
-		top: 3px;
+		top: 4px;
 	}
-	.navbar .nav > li a {
-		color: #efe5ff;
-		padding: 8px 15px;
-		font-size: 14px;		
+	.navbar .navbar-collapse {
+		border: none;
+		box-shadow: none;
+		padding: 0;
 	}
-	.navbar .nav > li a:hover, .navbar .nav > li a:focus {
-		color: #fff;
-		text-shadow: 0 0 4px rgba(255,255,255,0.3);
-	}
-	.navbar .nav > li > a > i {
+	.navbar .navbar-form {
+		border: none;
 		display: block;
-		text-align: center;
+		margin: 10px 0;
+		padding: 0;
 	}
-	.navbar .dropdown-menu i {
-		font-size: 16px;
-		min-width: 22px;
-	}
-    .navbar .dropdown-menu .material-icons {
-        font-size: 21px;
-        line-height: 16px;
-        vertical-align: middle;
-        margin-top: -2px;
-    }
-	.navbar .dropdown.open > a, .navbar .dropdown.open > a:hover, .navbar .dropdown.open > a:focus {
-		color: #fff;
-		background: none !important;
-	}
-	.navbar .dropdown-menu {
-		border-radius: 1px;
-		border-color: #e5e5e5;
-		box-shadow: 0 2px 8px rgba(0,0,0,.05);
-	}
-	.navbar .dropdown-menu li a {
-		color: #777 !important;
-		padding: 8px 20px;
-		line-height: normal;
-	}
-	.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:focus {
-		color: #333 !important;
-		background: transparent !important;
-	}
-	.navbar .nav .active a, .navbar .nav .active a:hover, .navbar .nav .active a:focus {
-		color: #fff;
-		text-shadow: 0 0 4px rgba(255,255,255,0.2);
-		background: transparent !important;
-	}
-	.navbar .nav .user-action {
-		padding: 9px 15px;
+	.navbar .navbar-nav {
+		margin: 8px 0;
 	}
 	.navbar .navbar-toggle {
-		border-color: #fff;
+		margin-right: 0;
 	}
-	.navbar .navbar-toggle .icon-bar {
-		background: #fff;
+	.input-group {
+		width: 100%;
 	}
-	.navbar .navbar-toggle:focus, .navbar .navbar-toggle:hover {
-		background: transparent;
-	}
-	.navbar .navbar-nav .open .dropdown-menu {
-		background: #faf7fd;
-		border-radius: 1px;
-		border-color: #faf7fd;
-		box-shadow: 0 2px 8px rgba(0,0,0,.05);
-	}
-	.navbar .divider {
-		background-color: #e9ecef !important;
-	}
-	@media (min-width: 1200px){
-		.form-inline .input-group {
-			width: 350px;
-			margin-left: 30px;
-		}
-	}
-	@media (max-width: 1199px){
-		.navbar .nav > li > a > i {
-			display: inline-block;			
-			text-align: left;
-			min-width: 30px;
-			position: relative;
-			top: 4px;
-		}
-		.navbar .navbar-collapse {
-			border: none;
-			box-shadow: none;
-			padding: 0;
-		}
-		.navbar .navbar-form {
-			border: none;			
-			display: block;
-			margin: 10px 0;
-			padding: 0;
-		}
-		.navbar .navbar-nav {
-			margin: 8px 0;
-		}
-		.navbar .navbar-toggle {
-			margin-right: 0;
-		}
-		.input-group {
-			width: 100%;
-		}
-	}
+}
 </style>
-</head> 
+
+</head>
 <body>
-<nav class="navbar navbar-inverse navbar-expand-xl navbar-dark">
-	<div class="navbar-header">
-		<a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Sporty<b>Shoes</b></a>  		
-		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-			<span class="navbar-toggler-icon"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-	</div>
-	<!-- Collection of nav links, forms, and other content for toggling -->
-	<div id="navbarCollapse" class="collapse navbar-collapse">		
-		<form class="navbar-form form-inline">
-			<div class="input-group search-box">								
-				<input type="text" id="search" class="form-control" placeholder="Search here...">
-				<span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
-			</div>
-		</form>
-		<ul class="nav navbar-nav navbar-right">
-			<li class="active"><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
+	<nav class="navbar navbar-inverse navbar-expand-xl navbar-dark" id="myHeader">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#"><i class="fa fa-cube"></i>Sporty<b>Shoes</b></a>
+			<button type="button" data-target="#navbarCollapse"
+				data-toggle="collapse" class="navbar-toggle">
+				<span class="navbar-toggler-icon"></span> <span class="icon-bar"></span>
+				<span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+		</div>
+		<!-- Collection of nav links, forms, and other content for toggling -->
+		<div id="navbarCollapse" class="collapse navbar-collapse">
+			<form class="navbar-form form-inline">
+				<div class="input-group search-box">
+					<input type="text" id="search" class="form-control"
+						placeholder="Search here..."> <span
+						class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
+				</div>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="#"><i class="fa fa-home"></i><span>Home</span></a></li>
 
+
+				<li class="dropdown"><a href="#" data-toggle="dropdown"
+					class="dropdown-toggle user-action"><img
+						src="https://thumbs.dreamstime.com/z/user-icon-trendy-flat-style-isolated-grey-background-symbol-your-web-site-design-logo-app-ui-vector-illustration-123663235.jpg"
+						class="avatar" alt="Avatar">My Account<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="customer/new"><i class="fa fa-user-o"></i>Register</a></li>
+						<li><a href="customer/login"><i class="fa fa-user-o"></i>Sign
+								In</a></li>
+
+						<li class="divider"></li>
+						<li><a href="logout"><i class="material-icons">&#xE8AC;</i>Logout</a></li>
+					</ul></li>
+			</ul>
+		</div>
+	</nav>
+
+	<section class="container">
+
+		<div>
+			<img
+				src="https://image.made-in-china.com/202f0j00jbFfnSOqceok/Manufacturers-Running-Sport-Shoes-for-Men.webp"
+				alt="First description" /> <span class="description">Sporty
+				Runner</span>
+		</div>
+		<div>
+			<img
+				src="https://media.istockphoto.com/photos/sport-shoes-on-isolated-white-background-picture-id956501428?k=20&m=956501428&s=612x612&w=0&h=UC4qdZa2iA0PJvv0RIBlJDyF80wxFyLPq4YWvZa30Sc="
+				alt="Second description"> <span class="description">Sporty
+				Walker</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/c2a3e21a03ee4ad39d66ad6b00720eb3_9366/supernova-shoes.jpg"
+				alt="Third description"> <span class="description">Sporty
+				Tennis</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/6d23a45d1a3e481e875eadf9013e8a82_9366/ultraboost-22-shoes.jpg"
+				alt="Fourth description"> <span class="description">Sporty
+				Fashin</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/7a213d79639649299088ad86014855d8_9366/duramo-sl-2.0-shoes.jpg"
+				alt="Fifth description"> <span class="description">Sporty
+				Work</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/b89aa8761d0842ea8508ad430109ad29_9366/ultraboost-web-dna-shoes.jpg"
+				alt="Sixth description"> <span class="description">Sporty
+				Runner 1</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/5336dd4d1abc4d78bc03ad6a00c43300_9366/run-falcon-2.0-shoes.jpg"
+				alt="Seventh description"> <span class="description">Sporty
+				Runner 2</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/d7ab6eacec784314894badbf014a008d_9366/ultraboost-22-shoes.jpg"
+				alt="Eighth description"> <span class="description">Sporty
+				Fashin 1</span>
+		</div>
+
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/4aa18ce6efcc4a45bd0aadec011d36ce_9366/supernova-m.jpg"
+				alt="Tenth description"> <span class="description">Sporty
+				Runner 1</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/7db949bcbfcc4575b0b7ae4000a5b457_9366/ultraboost-climacool-2-dna-shoes-%E2%80%93-flow-pack.jpg"
+				alt="Eleventh description"> <span class="description">Sporty
+				Tennis 1</span>
+		</div>
+		<div>
+			<img
+				src="https://assets.adidas.com/images/w_766,h_766,f_auto,q_auto,fl_lossy,c_fill,g_auto/a97c9ef91dda4175b130adec014ea6bd_9366/ultra4d.jpg"
+				alt="Twelfth description"> <span class="description">Sporty
+				Luxury</span>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<h2 class="footer__tagline-title">
+			Spoert Shoes - <span class="footer__tagline">If it's good it's
+				here</span> by <span>Yikebali Mutalipu</span>
+		</h2>
+	</footer>
 	
-			<li class="dropdown">
-				<a href="#" data-toggle="dropdown" class="dropdown-toggle user-action"><img src="https://thumbs.dreamstime.com/z/user-icon-trendy-flat-style-isolated-grey-background-symbol-your-web-site-design-logo-app-ui-vector-illustration-123663235.jpg" class="avatar" alt="Avatar">My Account<b class="caret"></b></a>
-				<ul class="dropdown-menu">
-					<li><a href="customer/new"><i class="fa fa-user-o"></i>Register</a></li>
-					<li><a href="customer/login"><i class="fa fa-user-o"></i>Sign In</a></li>
+<script>
+window.onscroll = function() {myFunction()};
 
-					<li class="divider"></li>
-					<li><a href="#"><i class="material-icons">&#xE8AC;</i> Logout</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
-</nav>
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
 </body>
-</html>                            
+</html>
