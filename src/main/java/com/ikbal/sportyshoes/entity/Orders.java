@@ -1,19 +1,20 @@
 package com.ikbal.sportyshoes.entity;
 
-import java.util.Set;
+
+import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-public class Orders {
+public class Orders implements Serializable{
 	
 	
 	@Id
@@ -23,22 +24,20 @@ public class Orders {
     
 	    private String name;
 	   
-	  
+	    @DateTimeFormat(pattern = "yyyy-MM-dd")
+	    private Date orderedon;
 	
 	    
 	    public Orders() {
 	    }
 
 
-
-
-		public Orders(Long id, String name) {
+		public Orders(Long id, String name, Date orderedon) {
 			super();
 			this.id = id;
 			this.name = name;
+			this.orderedon = orderedon;
 		}
-
-
 
 
 		public Long getId() {
@@ -46,13 +45,9 @@ public class Orders {
 		}
 
 
-
-
 		public void setId(Long id) {
 			this.id = id;
 		}
-
-
 
 
 		public String getName() {
@@ -60,14 +55,23 @@ public class Orders {
 		}
 
 
-
-
 		public void setName(String name) {
 			this.name = name;
 		}
-	    
-	   
-		
+
+
+		public Date getOrderedon() {
+			return orderedon;
+		}
+
+
+		public void setOrderedon(Date orderedon) {
+			this.orderedon = orderedon;
+		}
+
+
+
+
 	    
 
 }

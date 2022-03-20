@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8" />
 <title>Create New Order</title>
+
+<link th:rel="stylesheet"
+	th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.css}" />
+<link th:rel="stylesheet"
+	th:href="@{assets/bootstrap-datepicker/css/bootstrap-datepicker.standalone.css}" />
+<link th:rel="stylesheet"
+	th:href="@{webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} " />
+<link th:rel="stylesheet"
+	th:href="@{webjars/font-awesome/5.11.2/css/all.css} " />
 </head>
 <body>
-    <div align="center">
-        <h1>Create New Order</h1>
-        <br />
-        <form action="#" th:action="@{/osave}" th:object="${orders}"
+
+	<div align="center">
+		<h1>Create New Order</h1>
+		<br />
+		<!--    <form action="#" th:action="@{/osave}" th:object="${orders}"
             method="post">
  
             <table border="0" cellpadding="10">
@@ -23,6 +33,30 @@
                 </tr>
             </table>
         </form>
-    </div>
+        -->
+		<form th:action="@{/osave}" method="post" th:object="${orders}">
+			<div>
+				<label for="Product name">Product Name:</label> <input type="text"
+					th:field="${orders.name}" />
+			</div>
+			<br>
+			<div>
+
+				<label for="Order Date">Ordered Date:</label> <input type="date"
+					th:field="${orders.orderedon}" />
+
+			</div>
+			<br>
+			<div>
+				<button type="submit" class="button">Create</button>
+			</div>
+
+		</form>
+	</div>
+
+
+
+
+
 </body>
 </html>

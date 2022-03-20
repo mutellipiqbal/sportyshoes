@@ -30,13 +30,14 @@
 					<tr>
 						<th>Order ID</th>
 						<th>Order Name</th>
-						
+						<th>Order Date</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="orders: ${ordersList}">
 						<td th:text="${orders.id}">Order ID</td>
 						<td th:text="${orders.name}">Order Name</td>
+						<td th:text="${#dates.format(orders.orderedon, 'dd/MM/yyyy')}">Order Date</td>
 
 						
 					</tr>

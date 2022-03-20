@@ -124,20 +124,18 @@ public class AppController {
 		return "dasboard";
 	}
 	
-	@RequestMapping("orders/new")
-	public String oderCreationPage(Model model) {
-		Orders orders=new Orders();
-		model.addAttribute("orders", orders);
-	
-	    return "new_orders";
-	}
+	@GetMapping("orders/new")
+    public String main(Model model) {
+        model.addAttribute("orders", new Orders());
+        return "new_orders";
+    }
 	
 	@PostMapping("/osave")
-	public String saveOrder(@ModelAttribute("orders") Orders orders) {
+	public String saveStudent(@ModelAttribute("orders") Orders orders) {
 		oService.save(orders);
-	     
 	    return "redirect:/orders";
 	}
+
 	
 	@GetMapping("orders")
 	public String viewOrderPage(Model model) {
