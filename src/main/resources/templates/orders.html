@@ -9,6 +9,8 @@
 	<div align="center">
 	<div>
 		<h1>Order List</h1>
+		<a href="orders/new">Create New Product</a>
+			<div>&nbsp;</div>
 			<a href="dashboard">Back to Dashboard</a>
 	</div>
 	<div>&nbsp;</div>
@@ -31,6 +33,7 @@
 						<th>Order ID</th>
 						<th>Order Name</th>
 						<th>Order Date</th>
+						<th>Product category</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -38,6 +41,7 @@
 						<td th:text="${orders.id}">Order ID</td>
 						<td th:text="${orders.name}">Order Name</td>
 						<td th:text="${#dates.format(orders.orderedon, 'dd/MM/yyyy')}">Order Date</td>
+						<td th:text="${orders.category}">Product Category</td>
 
 						
 					</tr>
@@ -45,9 +49,9 @@
 			</table>
 		</div>
 	</div>
-	<script type="text/javascript">
+<script type="text/javascript">
 function clearFilter(){
-	window.location='customer/';
+	window.location='orders/';
 }
 </script>
 </body>

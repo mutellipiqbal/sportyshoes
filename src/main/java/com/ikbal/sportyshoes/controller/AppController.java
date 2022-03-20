@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ikbal.sportyshoes.entity.Admin;
 import com.ikbal.sportyshoes.entity.Customer;
 
 
@@ -99,27 +100,13 @@ public class AppController {
 	    return "redirect:/";
 	}
 	
-	@RequestMapping("customer/login")
-	public String customerLoginPage(Model model) {
-	    Customer customer= new Customer();
-	    model.addAttribute("customer", customer);
-	     
-	    return "login";
+	
+	@RequestMapping("/login")
+	public String display() {
+		return "login";
 	}
 	
-//	@RequestMapping("/login")
-//	public String adminLogin(HttpServletRequest req) {
-//		String userName=req.getParameter("login__icon fas fa-user");
-//		String password=req.getParameter("login__icon fas fa-lock");
-//		if(userName.equalsIgnoreCase("admin@admin.com") && password.equalsIgnoreCase("admin")) {
-//			return "dasboard";
-//		} else {
-//			return "index";
-//		}
-//	    
-//	}
-	
-	@RequestMapping("dashboard")
+	@RequestMapping("dasboard")
 	public String dashBoard() {
 		return "dasboard";
 	}
@@ -138,12 +125,14 @@ public class AppController {
 
 	
 	@GetMapping("orders")
-	public String viewOrderPage(Model model) {
-	    List<Orders> ordersList=oService.listAll();
+	public String viewOrderPage(Model model, @Param("keyword") String keyword) {
+	    List<Orders> ordersList=oService.listAll(keyword);
 	    model.addAttribute("ordersList", ordersList);
    
 	    return "orders";
 	}
+	
+
 
 	@RequestMapping("logout")
 	public String logout() {

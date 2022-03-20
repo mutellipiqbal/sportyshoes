@@ -19,25 +19,18 @@
 	<div align="center">
 		<h1>Create New Order</h1>
 		<br />
-		<!--    <form action="#" th:action="@{/osave}" th:object="${orders}"
-            method="post">
- 
-            <table border="0" cellpadding="10">
-                <tr>
-                    <td>Product Name:</td>
-                    <td><input type="text" th:field="*{name}" /></td>
-                </tr>
-              
-                <tr>
-                    <td colspan="2"><button type="submit">Save</button> </td>
-                </tr>
-            </table>
-        </form>
-        -->
+		
 		<form th:action="@{/osave}" method="post" th:object="${orders}">
 			<div>
 				<label for="Product name">Product Name:</label> <input type="text"
 					th:field="${orders.name}" />
+			</div>
+			<br>
+			<div>
+			
+			<div>
+				<label for="Product category">Product Category:</label> <input type="text"
+					th:field="${orders.category}" />
 			</div>
 			<br>
 			<div>

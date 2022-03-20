@@ -22,8 +22,11 @@ public class OrdersService {
 	    @Autowired
 	    private OrdersRepository orderRepo;
 	     
-	    public List<Orders> listAll() {
-	    	return orderRepo.findAll();
+	    public List<Orders> listAll(String keyword) {
+	    	if(keyword !=null) {
+	    		return orderRepo.findAll(keyword);
+	    	}
+	        return orderRepo.findAll();
 	    }
 	     
 	    public void save(Orders orders) {

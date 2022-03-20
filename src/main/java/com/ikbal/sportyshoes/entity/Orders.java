@@ -23,6 +23,8 @@ public class Orders implements Serializable{
     
     
 	    private String name;
+	    
+	    private String category;
 	   
 	    @DateTimeFormat(pattern = "yyyy-MM-dd")
 	    private Date orderedon;
@@ -32,10 +34,11 @@ public class Orders implements Serializable{
 	    }
 
 
-		public Orders(Long id, String name, Date orderedon) {
+		public Orders(Long id, String name, String category, Date orderedon) {
 			super();
 			this.id = id;
 			this.name = name;
+			this.category=category;
 			this.orderedon = orderedon;
 		}
 
@@ -57,6 +60,16 @@ public class Orders implements Serializable{
 
 		public void setName(String name) {
 			this.name = name;
+		}
+
+
+		public String getCategory() {
+			return category;
+		}
+
+
+		public void setCategory(String category) {
+			this.category = category;
 		}
 
 
