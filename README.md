@@ -49,16 +49,22 @@ How to run the program • clone project
 
 • New customer can register on home page my account section.
 
+• Admin filter/search/categorize users.
+
 • To login, use “admin” as user name and password.
 
 • Admin can add new product.
 
 • Admin can view the product list.
 
+• Admin filter/search/categorize products.
+
 • Admin can view all registered customer.
 
 • Admin can add new order.
 
 • Admin can view order list.
+
+• Admin filter/search/categorize orders.
 
 • Admin can logout.
