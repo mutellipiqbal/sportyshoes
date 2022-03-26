@@ -1,11 +1,11 @@
 E-commerce Website for Sporty Shoes
 
 
-Project' Details:
+### Project' Details:
 
 This project is designed for the Sporty Shoes business development. The main goal of developing this project is to practice advanced technologies such as Spring Boot, Hibernate, HTML, MySQL, JDBC, Tomcat,  Thymeleaf and JavaScript.
 
-# Product Backlog:
+### Product Backlog:
 
 ● Manage the products in the store including categorizing them
 
@@ -13,7 +13,7 @@ This project is designed for the Sporty Shoes business development. The main goa
 
 ● See purchase reports filtered by date and category
 
-Technologies Used:
+### Technologies Used:
 
 ● Spring Boot is a Java-based framework used to create a java application and micro-Service. It is used to build stand-alone and production ready spring applications.
 
@@ -32,13 +32,13 @@ Technologies Used:
 ● Tomcat: pache Tomcat is a free and open-source implementation of the Jakarta Servlet, Jakarta Expression Language, and WebSocket technologies.
 
 
-Flowcharts of The Application 
+### Flowcharts of The Application 
  
 ![image](https://user-images.githubusercontent.com/32098494/159286050-70446345-4d34-4851-b395-6458d5a92396.png)
 
 
 
-How to run the program • clone project
+### How to run the program • clone project
 
 
 • Import the Sporty Shoes project from GitHub.
