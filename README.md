@@ -5,7 +5,7 @@ Project' Details:
 
 This project is designed for the Sporty Shoes business development. The main goal of developing this project is to practice advanced technologies such as Spring Boot, Hibernate, HTML, MySQL, JDBC, Tomcat,  Thymeleaf and JavaScript.
 
-#Product Backlog:
+# Product Backlog:
 
 ● Manage the products in the store including categorizing them
 
