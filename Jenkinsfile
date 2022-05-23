@@ -1,34 +1,53 @@
 pipeline {
     agent any 
+    tools {
+        maven "TestMaven"
+    
+    }
     stages {
-        stage('Static Analysis') {
+        stage('Compile and Clean') { 
             steps {
-                echo 'Run the static analysis to the code' 
+                // Run Maven on a Unix agent.
+              
+                sh "mvn clean"
             }
         }
-        stage('Compile') {
+        stage('deploy') { 
+            
             steps {
-                echo 'Compile the source code' 
+                sh "mvn install"
             }
         }
-        stage('Security Check') {
+        stage('Build Docker image'){
+          
             steps {
-                echo 'Run the security check against the application' 
+                echo "Hello Java Express"
+                sh 'ls'
+                sh 'docker build -t  bhaveshraval/docker_jenkins_springboot:${BUILD_NUMBER} .'
             }
         }
-        stage('Run Unit Tests') {
+        stage('Docker Login'){
+            
             steps {
-                echo 'Run unit tests from the source code' 
+                 withCredentials([string(credentialsId: 'DockerId', variable: 'Dockerpwd')]) {
+                    sh "docker login -u bhaveshraval -p ${Dockerpwd}"
+                }
+            }                
+        }
+        stage('Docker Push'){
+            steps {
+                sh 'docker push bhaveshraval/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
-        stage('Run Integration Tests') {
+        stage('Docker deploy'){
             steps {
-                echo 'Run only crucial integration tests from the source code' 
+               
+                sh 'docker run -itd -p  8081:8080 bhaveshraval/docker_jenkins_springboot:${BUILD_NUMBER}'
             }
         }
-        stage('Publish Artifacts') {
+        stage('Archving') { 
             steps {
-                echo 'Save the assemblies generated from the compilation' 
+                 archiveArtifacts '**/target/*.jar'
             }
         }
     }
